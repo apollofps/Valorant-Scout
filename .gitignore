@@ -1,0 +1,57 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Env / Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Local tooling caches
+.cache/
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Python / Backend
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+build/
+dist/
+eggs/
+.eggs/
+.mypy_cache/
+.pytest_cache/
+pip-wheel-metadata/
+*.egg-info/
+backend/venv/
+backend/.venv/
+backend/.ruff_cache/
+backend/htmlcov/
+
+# Node / Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/.turbo/
+frontend/.cache/
+frontend/.vite/
+frontend/dist/
+frontend/build/
+frontend/coverage/
+
+# Project-specific
+.claude/
+GRID_DOCS_API.pdf
+tmpclaude-*/
+**/tmpclaude-*/
+
+# Legacy duplicate (delete manually after restructure)
+valorant-scout/

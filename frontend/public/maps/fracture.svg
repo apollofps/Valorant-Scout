@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" fill="none">
+  <defs>
+    <linearGradient id="fractureBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3d2a1f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1000" height="1000" fill="url(#fractureBg)"/>
+  
+  <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+    <line x1="0" y1="200" x2="1000" y2="200"/>
+    <line x1="0" y1="400" x2="1000" y2="400"/>
+    <line x1="0" y1="600" x2="1000" y2="600"/>
+    <line x1="0" y1="800" x2="1000" y2="800"/>
+    <line x1="200" y1="0" x2="200" y2="1000"/>
+    <line x1="500" y1="0" x2="500" y2="1000"/>
+    <line x1="800" y1="0" x2="800" y2="1000"/>
+  </g>
+  
+  <!-- A Site (Left side) -->
+  <rect x="80" y="380" width="250" height="200" fill="rgba(255,70,85,0.15)" stroke="rgba(255,70,85,0.4)" stroke-width="2" rx="4"/>
+  <text x="205" y="490" text-anchor="middle" fill="#FF4655" font-size="48" font-weight="bold" font-family="Arial, sans-serif">A</text>
+  
+  <!-- A Main -->
+  <rect x="80" y="180" width="120" height="200" fill="rgba(100,100,120,0.2)" stroke="rgba(255,255,255,0.2)" stroke-width="1" rx="2"/>
+  <text x="140" y="285" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="14" font-family="Arial, sans-serif">A Main</text>
+  
+  <!-- A Drop -->
+  <rect x="200" y="180" width="130" height="120" fill="rgba(100,100,120,0.2)" stroke="rgba(255,255,255,0.2)" stroke-width="1" rx="2"/>
+  <text x="265" y="245" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="12" font-family="Arial, sans-serif">A Drop</text>
+  
+  <!-- A Rope/Hall -->
+  <rect x="80" y="580" width="120" height="150" fill="rgba(100,100,120,0.2)" stroke="rgba(255,255,255,0.2)" stroke-width="1" rx="2"/>
+  <text x="140" y="660" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="12" font-family="Arial, sans-serif">A Rope</text>
+  
+  <!-- Dish (Center) -->
+  <rect x="380" y="100" width="240" height="180" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.4)" stroke-width="2" rx="4"/>
+  <text x="500" y="200" text-anchor="middle" fill="rgba(59,130,246,0.8)" font-size="18" font-family="Arial, sans-serif">DEF SPAWN</text>
+  
+  <!-- Mid Bridge -->
+  <rect x="400" y="350" width="200" height="100" fill="rgba(100,100,120,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="2" rx="4"/>
+  <text x="500" y="410" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="16" font-weight="bold" font-family="Arial, sans-serif">BRIDGE</text>
+  
+  <!-- Underground/Hall -->
+  <rect x="380" y="500" width="240" height="120" fill="rgba(100,100,120,0.2)" stroke="rgba(255,255,255,0.2)" stroke-width="1" rx="2"/>
+  <text x="500" y="565" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="14" font-family="Arial, sans-serif">Underground</text>
+  
+  <!-- B Site (Right side) -->
+  <rect x="670" y="380" width="250" height="200" fill="rgba(255,70,85,0.15)" stroke="rgba(255,70,85,0.4)" stroke-width="2" rx="4"/>
+  <text x="795" y="490" text-anchor="middle" fill="#FF4655" font-size="48" font-weight="bold" font-family="Arial, sans-serif">B</text>
+  
+  <!-- B Main -->
+  <rect x="800" y="180" width="120" height="200" fill="rgba(100,100,120,0.2)" stroke="rgba(255,255,255,0.2)" stroke-width="1" rx="2"/>
+  <text x="860" y="285" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="14" font-family="Arial, sans-serif">B Main</text>
+  
+  <!-- B Arcade -->
+  <rect x="670" y="180" width="130" height="120" fill="rgba(100,100,120,0.2)" stroke="rgba(255,255,255,0.2)" stroke-width="1" rx="2"/>
+  <text x="735" y="245" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="12" font-family="Arial, sans-serif">Arcade</text>
+  
+  <!-- B Rope -->
+  <rect x="800" y="580" width="120" height="150" fill="rgba(100,100,120,0.2)" stroke="rgba(255,255,255,0.2)" stroke-width="1" rx="2"/>
+  <text x="860" y="660" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="12" font-family="Arial, sans-serif">B Rope</text>
+  
+  <!-- Attacker Spawn (Split - two locations) -->
+  <rect x="100" y="850" width="200" height="80" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.4)" stroke-width="2" rx="4"/>
+  <text x="200" y="897" text-anchor="middle" fill="rgba(34,197,94,0.8)" font-size="12" font-family="Arial, sans-serif">ATK SPAWN</text>
+  
+  <rect x="700" y="850" width="200" height="80" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.4)" stroke-width="2" rx="4"/>
+  <text x="800" y="897" text-anchor="middle" fill="rgba(34,197,94,0.8)" font-size="12" font-family="Arial, sans-serif">ATK SPAWN</text>
+  
+  <!-- Zipline indicators -->
+  <line x1="300" y1="800" x2="380" y2="620" stroke="rgba(168,85,247,0.5)" stroke-width="3" stroke-dasharray="10,5"/>
+  <line x1="700" y1="800" x2="620" y2="620" stroke="rgba(168,85,247,0.5)" stroke-width="3" stroke-dasharray="10,5"/>
+  
+  <text x="500" y="980" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="24" font-weight="bold" font-family="Arial, sans-serif">FRACTURE</text>
+</svg>

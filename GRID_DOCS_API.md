@@ -1,0 +1,1273 @@
+# GRID Data Portal Docs (PDF → Markdown)
+
+> Converted from the uploaded PDF. Each page is embedded as an image to preserve diagrams/layout. OCR text is included below each image for search/copy.
+
+
+## Welcome on the GRID (Page 1)
+
+![Page 1](images/page-01.png)
+
+
+### OCR Text
+
+
+API Documentation API Reference Widgets Video. GQL Playground
+LT
+API Documentation Overview
+Welcome on the GRID
+GRID provides competitive gaming data through APs. The datas spt up in
++ Static data: schedules, tournaments teams,
++ Ingame data gameplay data, updated 95 series played
+Thedocimentationisheret
++ Holpyou interact with our APIs quickly as possible
++ Goto our Stati Data QuickStart Guide
++ Go to our In-Game Data Quick-Start Guide
++ Provide you with a complete view of whats available
++ Goto our API Reference
+Access
+An authorised APIkeys required to gin access to each GraphQL AP by setting the x
+api-key header on each POST request. you do not have an AP key, orhave anyother
+questions aound acess, please contact our Support Team,
+Discover
+To nteract and discover whats vallable via GRID APIs. the following development tools
+GraphQt Playground
+
+
+## ‘GraphQL isa language that enables aflexible approach to querying APs, by enabling the (Page 2)
+
+![Page 2](images/page-02.png)
+
+
+### OCR Text
+
+
+‘GraphQL isa language that enables aflexible approach to querying APs, by enabling the
+lent to query only whats required, Most APIs offered a partof the GRID data feeds
+arequeryable with Graph.
+Inocder to discover an test ifferent GraphQl. queries across these API, the GraphQL
+Playgrounds availabe that allows live queries for real data. Its possible to view the
+schema for each API using the panel located on the right-hand side ofthe playground
+pplication,
+Data Feed Viewer
+The Data Feed Viewer enables consumers to discover the evens data contained within
+transactions, publshed bythe Series Events APL
+Get Support
+l¥you have ay questions or requir support using GRID's APs please reach out tour
+Support Team.
+
+eves solemn ena eacsonnion
+
+
+## Page 3 (Page 3)
+
+![Page 3](images/page-03.png)
+
+
+## Page 4 (Page 4)
+
+![Page 4](images/page-04.png)
+
+
+## Page 5 (Page 5)
+
+![Page 5](images/page-05.png)
+
+
+## Page 6 (Page 6)
+
+![Page 6](images/page-06.png)
+
+
+## Page 7 (Page 7)
+
+![Page 7](images/page-07.png)
+
+
+## Page 8 (Page 8)
+
+![Page 8](images/page-08.png)
+
+
+## Page 9 (Page 9)
+
+![Page 9](images/page-09.png)
+
+
+## Page 10 (Page 10)
+
+![Page 10](images/page-10.png)
+
+
+## Page 11 (Page 11)
+
+![Page 11](images/page-11.png)
+
+
+## Page 12 (Page 12)
+
+![Page 12](images/page-12.png)
+
+
+## Page 13 (Page 13)
+
+![Page 13](images/page-13.png)
+
+
+## Static Data Quick-Start Guide (Page 14)
+
+![Page 14](images/page-14.png)
+
+
+### OCR Text
+
+
+Static Data Quick-Start Guide
+
+Loaves gees
+yest ne GraphQL Playground o Postman
+
+Run a query with the GRID Playground
+
+
+## Page 15 (Page 15)
+
+![Page 15](images/page-15.png)
+
+
+## Static Data Overview (Page 16)
+
+![Page 16](images/page-16.png)
+
+
+### OCR Text
+
+
+API Documentation API Reference Widgets Video. GQL Playground
+LT
+
+Static Data Overview
+
+he Central DataFeed ste repository of GRID' static dat,
+
+“The tecm*static dat” refersto information regarding an entity not associated within
+
+thetiteinwhich they compete areconsderedsttc dia,
+
+Central Data URLs
+
+There are two URLsthat canbe ured o access Centra Data, Oneisfor Open Access
+
+Open Access URL
+
+htps/ap-op grid gacentraldataferapal
+
+Full Access URL
+
+htps/aparidas/enta-datarapal
+
+
+## Page 17 (Page 17)
+
+![Page 17](images/page-17.png)
+
+
+## Page 18 (Page 18)
+
+![Page 18](images/page-18.png)
+
+
+## Page 19 (Page 19)
+
+![Page 19](images/page-19.png)
+
+
+### OCR Text
+
+
+i
+HOO
+L] Oo
+OO Bo
+CL]
+
+
+## Page 20 (Page 20)
+
+![Page 20](images/page-20.png)
+
+
+## PI Docume Reference Widgets Video GQL Playground (Page 21)
+
+![Page 21](images/page-21.png)
+
+
+### OCR Text
+
+
+PI Docume Reference Widgets Video GQL Playground
+
+LT
+Static Data FAQ
+Is more detailed information about tournaments and
+teams available?
+GRID caren offersaltticinfrmation vallabe sbout tournaments and tem
+through the APs. We are continuously working towards increasing the level of dtailot
+Is any information relating to players’ rosters/lineups
+supported?
+The APIs current donot support team's expected roster neuplthough this feature
+Is being worked on andl supported inthe futur
+
+
+## Page 22 (Page 22)
+
+![Page 22](images/page-22.png)
+
+
+## GetLiveDotaSeriesstat (Page 23)
+
+![Page 23](images/page-23.png)
+
+
+### OCR Text
+
+
+LS
+GetLiveDotaSeriesstat
+
+
+## Page 24 (Page 24)
+
+![Page 24](images/page-24.png)
+
+
+## Additional Resources (Page 25)
+
+![Page 25](images/page-25.png)
+
+
+### OCR Text
+
+
+Additional Resources
+nl ices on ID LveData Feeds at
+GraohOL Plverund
+
+
+## In-Game Data Overview (Page 26)
+
+![Page 26](images/page-26.png)
+
+
+### OCR Text
+
+
+API Documentation API Reference Widgets Video. GQL Playground
+LT
+In-Game Data Overview
+The GRID dat platform enables you to getingamedata vais APs. y definition this
+alata generated byte tts game server ether
++ Directly ke a team panting the Spke In Valorant or slaying Roshan in DotA
++ Indirectly ikea team winning series ater wining 2 games ina Best-of
+series ad not multiple. Imgomedataretersbacktostatic dat, which canbe sed tote
+data for ene across multiple series together
+In-game data includes bot
++ Thelatest state ofa series
++ Events that happened throughout a series
+CGRID's data structure istite-agnostc, meaning thatitisthe sme across al supported
+tle. Thiedoes nat mean thatalstte datapoints nd events ae applicable tl ites
+aly that when they are applicable, they workn exactly the sare way.
+
+
+## Page 27 (Page 27)
+
+![Page 27](images/page-27.png)
+
+
+## Series State (Page 28)
+
+![Page 28](images/page-28.png)
+
+
+### OCR Text
+
+
+API Documentation API Reference Widgets Video. GQL Playground
+LT
+
+Series State
+
+The state of series gives you a snapshot of thelates situation. This state changes ove
+
+time while the seriesis ongoing
+
+Examples of state ae
+
++ The totals ofa player throughout a seri
+
+Series State URLs
+
+Access sersan the othersfor ent ith commercial level access
+
+Open Access URL
+
+htpe/ap-opgridgpive-dte feeders stateferphal
+
+Full Access URL
+
+htpsJfpi er give dats feedseries-stateleraphal
+
+Data structure
+
+Thestate of series follows aberarchy containing dferet state lve
+
+
+## Each eres consists of games being played. Each gamecan consist of multiple segments (Page 29)
+
+![Page 29](images/page-29.png)
+
+
+### OCR Text
+
+
+Each eres consists of games being played. Each gamecan consist of multiple segments
+
+being layed. Each segment can consis of multiple segments being played and so.on.A
+
+segment can thusrepresent
+
+‘+ Apart ofa game, like around in Valorant
+
++ Apart of another segment, ike the Buy Phase ofthat round,
+
+‘Thestateis structured insucha way thatthe same datapoints are aggregated on llstate
+
+levels, fr example the total ils throughout the whole eres a singe game ora segment
+
+‘ofa game. Some data cannot be aggregated and only appears onspecic state levels ike
+
+‘whether ornot a segments irished yt.
+
+Additionally state data points are also aggregated per individual participant ofaseres,
+
+lke the total kills ofa team ina game. These agaregates are available on each state evel
+
+and follow the following hierarchy:
+
++ Teams
+
++ Players
+
+Each team's datapoints also hold the datapoints forthe players paying for tat team,
+
+Getting the latest state
+
+Using our Series State APits possible to get the atest state ofa series. Inthe request
+
+‘you can as for exactly the state data polts you're interested in. That way the responses
+
+areas quick and minimal a possible.
+
+“Thestate updates as actions happen during an ongoing eres. By default. the tate willbe
+
+synchronized with theofficial broadcast stream.
+
+Currently we don'offer away tolsten for state changes. you want to keep knowing
+
+about the latest state ofan ongoing series, you have to requestit again every sooften
+
+‘depending on your use case and up toa limit you request the sate too often and break
+
+that limit youl get response teling you to back off from sending more request for
+
+‘Thestateat theendof the series remains acessble after the series isfnished. This
+
+‘enables you to request data for past series as wel, Youcan also downoad the fll state
+
+‘or apastseries as le using ou File Download APL.
+
+Youcan use our Graph Payground to try getting the latest state ofa series yourselt
+
+without having to write any code, We continuously replay tes eres so youcan try tout
+eves solemn enmanuntogane ate »
+
+
+## evenwhenthere'sno esprts series ongoing. (Page 30)
+
+![Page 30](images/page-30.png)
+
+
+### OCR Text
+
+
+evenwhenthere'sno esprts series ongoing.
+
+
+## Page 31 (Page 31)
+
+![Page 31](images/page-31.png)
+
+
+## a api grid. gg/Live-data-Feed/series/(SERIES_x0)7key=(A (Page 32)
+
+![Page 32](images/page-32.png)
+
+
+### OCR Text
+
+
+v
+a api grid. gg/Live-data-Feed/series/(SERIES_x0)7key=(A
+————;Xi—e ee
+1 apt grid, gg/Live-data-feed/ series playerIde(PLAYER_T
+—— fl
+
+
+## Page 33 (Page 33)
+
+![Page 33](images/page-33.png)
+
+
+## Connection Limit (Page 34)
+
+![Page 34](images/page-34.png)
+
+
+### OCR Text
+
+
+Connection Limit
+
+Configuration
+at
+
+2 “rules: £
+
+a ¢
+5 : :
+6 action": ">
+8 be
+9 clude": true,
+
+
+## 1° SncludeFullstate": false (Page 35)
+
+![Page 35](images/page-35.png)
+
+
+### OCR Text
+
+
+1° SncludeFullstate": false
+uo)
+2 {
+B eventTypenatcher" {
+ue factor":
+18 action": "killed",
+16 target
+” »
+ro exclude": False,
+rt SncludeFullstate": true
+2)
+a)
+1
+2 "drs “eventr",
+3 “type': “serdes-started-gane",
+4 “includesFulistate"s false,
+5 “actor": {
+6 “types "series",
+7 id": *series-1",
+8 tateDeltar: {
+° id": "series-1",
+ae games: [
+u i
+Bb tarted": true
+
+
+## v tate’: ( (Page 36)
+
+![Page 36](images/page-36.png)
+
+
+### OCR Text
+
+
+1 >
+
+6 1
+
+coe
+
+v tate’: (
+
+e id": "series-1",
+a games": [
+
+29 t
+
+a id": "gane-1",
+2 tarted": true
+23 ?
+
+24 1
+
+3)
+
+27 “aetion": “started”,
+28 “target: {
+
+30 id": “gone-1",
+a statedelta": {
+2 id": "game-2",
+3 started’: true
+oy
+
+35 state": (
+
+36 1d": "gane-1",
+7 started": true
+3)
+
+3B)
+
+49 “seriesstateDelta’: {
+2 “panes:
+
+a G
+
+44 a": “gane-1",
+4s started": true
+46 >
+
+a)
+
+49° “soriesstate’: (
+
+s@ "id": “serdes-1",
+s1“ganes": [
+
+52 (
+
+
+## Testing tools (Page 37)
+
+![Page 37](images/page-37.png)
+
+
+### OCR Text
+
+
+5S } -
+
+61
+
+7)
+
+se)
+Testing tools
+
+< iteof tools and resourcestohalpyoutest alate
+The Fed Vieweriso web based tool for connecting to ay :
+teallows you:
+
+
+## Page 38 (Page 38)
+
+![Page 38](images/page-38.png)
+
+
+## Page 39 (Page 39)
+
+![Page 39](images/page-39.png)
+
+
+## GRID File Download API (Page 40)
+
+![Page 40](images/page-40.png)
+
+
+### OCR Text
+
+
+LT
+GRID File Download API
+Overview
+Fe supported : ID State nd Events ta
+developers, uch as ch istory and LiveState
+is avaiable through he fllowingUURL
+1 hetps://aph.grid gg/#8e-dountoad
+Specifications
+File types
+GRID State
+Pleaser Series State APL data structure section or dele information.
+
+
+## GRID Event (Page 41)
+
+![Page 41](images/page-41.png)
+
+
+### OCR Text
+
+
+GRID Event
+is le types available in compressed JSON (sin JSON Lines for
+Quick-start guide
+Central Data
+2537521 f
+2 curl =f +H “w-api-key: personal-aps-key™ hetps://apf.eridac
+es
+
+
+## htpsuap grid gg/le- downloadistseresi) (Page 42)
+
+![Page 42](images/page-42.png)
+
+
+### OCR Text
+
+
+Request
+htpsuap grid gg/le- downloadistseresi)
+Response
+1
+2 “piles: £
+3 {
+4 hd": “events-rtot-conpressed”,
+5 description": "Riot Livestats (.2ip)">
+6 status": "ready",
+7 fileName": “events_2537521_riot json). zip",
+8 FuLIURL": "hetps:/7api grid. gg/#le-dounload/eve
+9 b
+10 {
+n "d's “state-rlot-conpressed",
+n description": "Riot Gane Agnostic Match History
+2 status": "ready",
+4 ‘leNane": “end_state_2537521_riot.Json.2ip",
+a6 b
+v {
+Py 1d": “events-grid-conpressed’
+we description": "Grid Series Events (.24p)",
+20 status": "ready",
+2 “FileName: “events, 2537521_grid.jsonl.2ip",
+2 fullURL": “https:/7aph.grid.ga/File-download/eve
+23 b
+2 {
+2s 1d": “state-grid”,
+26 description": "Grid Post Series state (.Json)",
+
+
+## 28 fileName": end_state_2537521_arid.json", (Page 43)
+
+![Page 43](images/page-43.png)
+
+
+### OCR Text
+
+
+28 fileName": end_state_2537521_arid.json",
+32 >
+a)
+32)
+ete r
+
+
+## Stats Feed Overview (Page 44)
+
+![Page 44](images/page-44.png)
+
+
+### OCR Text
+
+
+LT
+Stats Feed Overview
+RID es asetofAPsthat present the aggregated values fi
+sh stebespok insight for thelr aud
+crios fers agaressted statist dplayersfor ri
+Access
+Stats Fed APIs GraphQLAPI thats sed using the folowing endpoin
+1 weapi-key-cvalid-api-key>
+Filters
+sts Fed alonsthe defn. Jes ith ciferen con
+
+
+## Other sampling concitions are su nding onthe query, Se the API Reference (Page 45)
+
+![Page 45](images/page-45.png)
+
+
+### OCR Text
+
+
+Other sampling concitions are su nding onthe query, Se the API Reference
+fournamentids. snd timeWindows
+imeWindow
+Statistics Structure
+following high-level st rently supported, he API Reference
+
+
+## Page 46 (Page 46)
+
+![Page 46](images/page-46.png)
+
+
+## 1 query ( (Page 47)
+
+![Page 47](images/page-47.png)
+
+
+### OCR Text
+
+
+1 query (
+
+2 teanstatistics(teanld: "45021", Filter: { tineWindow: LAST_6,
+3 series (
+
+5 kauls (
+
+6 sum
+
+a max
+
+9 ag
+
+10 }
+
+n deaths (
+2 sum
+
+2 nin
+
+6 ava
+
+16 }
+yo)
+
+18 gane
+
+20 nethorth (
+2 ain
+
+2 max
+
+2 ag
+
+25 ?
+
+26 wins {
+
+27 value
+28 count
+2 percentage
+» streak (
+R ax
+B current
+a >
+
+6 }
+
+37 segment (
+8 type
+
+
+## 40 kills ( (Page 48)
+
+![Page 48](images/page-48.png)
+
+
+### OCR Text
+
+
+2° .
+40 kills (
+a ain
+2 max
+4 ag
+45 }
+46 wins {
+a7 value
+48 count
+2 percentage
+50 streak (
+52 max
+33 current
+54 >
+55 }
+37)
+2 “datas (
+3 “teanstatistics": {
+4 eres": {
+5 count": Al,
+6 Kills": (
+7 ms 9943,
+8 nin": 133,
+1 ‘avg’: 718.1219512195122
+n »
+2 deaths":
+B sun": 8912,
+rs nin": 135,
+6 max": 334,
+16 avg": 217.3658536585366
+” ,
+
+
+## 2 inetWorth"? { (Page 49)
+
+![Page 49](images/page-49.png)
+
+
+### OCR Text
+
+
+a »
+
+8 ‘ane
+
+2 inetWorth"? {
+
+2 sun": 1902308,
+24 nax"t 78350,
+2s avg": 20026, 21052631579
+26 b
+
+27 wins": [
+
+28 G
+
+29 falue": false,
+1 percentage": 49,473684210526315,
+2 streak": {
+33 min": 4,
+3 imax": 9,
+36 >
+
+7 b
+
+38 «
+
+33 salve": true,
+4 percentage": 50,526915789473685,
+a streak": {
+a min": 2,
+4 max" 11,
+4s current":
+46 >
+
+a” >
+
+48 1
+
+49 h
+
+50 regvent": [
+
+st {
+
+52 ‘type: “round
+53 ‘count: 2519,
+se Kills": {
+
+55 ‘sum: 8943,
+56 in": @,
+
+
+## 38 avg": 3.5s0719340611354 (Page 50)
+
+![Page 50](images/page-50.png)
+
+
+### OCR Text
+
+
+38 avg": 3.5s0719340611354
+8 »
+© wins": [
+cy {
+6 value": false,
+oy percentage": 49,34497816593886,
+8 streak: (
+6 ain": 4,
+° eax": 13,
+current": @
+@ ?
+n t
+n value": true,
+a ount*: 3276,
+™ percentage": 50,65502183406113,
+8 streak’:
+6 ain": 2,
+8 current: 6
+7” )
+a 1
+a >
+a 1
+“3
+ss)
+a)
+
+Supported Titles
+
+GRID supported tts inclng League cf Legends, Counter Strike 2, Defense ofthe
+
+tle suport may be ited to specific statistics. See the Statistics Structure section fr
+
+
+## Supported Statistics (Page 51)
+
+![Page 51](images/page-51.png)
+
+
+### OCR Text
+
+
+Supported Statistics
+Some of the statistics the GRID Stats API uoports are: count lof series, games
+rounds) klls kllAssistsGiven , kilssistsReceved .teamkil
+teamkilAssistsGiven , teamkilAssstsReceived . sells . deaths , headshots
+tructuresDestroyed , structuresCaptured , score and wins
+See the AP reference fora comprehensivelst ofthe supported statistics and their
+Statistics types
+
+at
+
+2 “datat
+
+2 “temnstatiatics™s (
+
+4 series": (
+
+5 count": 244
+
+6 }
+
+7)
+
+a}
+
+9)
+The above response shows that 244 Series were included in this range (ttle 1D, team ID &
+This typeof statistic isan aggregation of integer fields, which includes the total (sum, the
+thistype.are Kills, kllAcsistsGiven , klAssstReceived , team
+
+
+## structuresDestroyed . structuresCaptured and score (Page 52)
+
+![Page 52](images/page-52.png)
+
+
+### OCR Text
+
+
+structuresDestroyed . structuresCaptured and score
+Sum, min, max and avg values of kis (Series level] and netWorth (Gare evel) To
+
+at
+
+2 “data:
+
+3 “tennstatisttess (
+
+4 series": (
+
+5 kills": {
+
+6 ‘sun: 55807,
+
+a ax": 459,
+
+10 >
+
+u »
+
+2 ane": {
+
+2 count": 598,
+
+u rnethorth": (
+
+1s um": 19342450,
+
+16 in": 1200,
+
+ro ave": 18967, 30769230769
+
+19 >
+
+20 }
+
+a)
+
+2)
+
+23)
+‘The above response shows thatthe team hada total of 507 kl, wth minimum
+worth ofall the players across al 11242650 with aminimum maximum and
+yerage value of 1100, 80800 and 18967, ne, respective
+Booleandccurencestatistic
+
+
+## nition (8 uch 35, for example, aT ngwon aGame. (Page 53)
+
+![Page 53](images/page-53.png)
+
+
+### OCR Text
+
+
+nition (8 uch 35, for example, aT ngwon aGame.
+2 “datas
+3 “teanstatistics’: {
+4 gone": {
+5 wins": [
+7 value": false,
+1 streak": {
+v ax" 14,
+>
+6 »
+16 ¢
+v slue"s trues
+ry percentage”! 46. 655665666566668,
+20 streak": {
+2 imax": 10,
+2 >
+2s )
+26 1
+2 >
+a)
+28
+32)
+
+
+## Page 54 (Page 54)
+
+![Page 54](images/page-54.png)
+
+
+## Post-Game Data API Overview (Page 55)
+
+![Page 55](images/page-55.png)
+
+
+### OCR Text
+
+
+API Documentation APIReference Widgets Video GQL Playground
+LT
+
+Post-Game Data API Overview
+
+“Tis document outlines the proces for transiting post-game data to the GRID Data
+
+Plato aking accesible via the GRID Post-Game APL detalsthe key integration
+
+steps including sening commands that representin-game actions ike kilsor item
+
+Pickups and updating the overall game state
+
+Key aspects of the integration include:
+
++ Commands: Dat is transmitted as JSON commands via HTTPS othe GRID
+
++ Game State Updates: The UPDATE_BASIC.GAME.STATE. command provides
+an overview ofthe game's ial state
+
++ Actions: individual actions within the eame canbe tracked using specific
+commands (e KILL_ENEMY.PLAYER
+
++ Player Positions: The UPDATE.PLAYER POSITIONS command allows for
+tracking player coordinates overtime.
+
++ Correlation 1D: This 10 allows associating actions, postion updates, and state
+changes fr synchronized processing,
+
++ API Key: Provided by GRID, along wth title IDs for production and testing
+
++ OpenAP! Specification: The srd_openapi_post.game_apiyaml file's provided
+to define the API structure, viewable inthe Swagger Editor. Link te Download
+
+‘game integration process generally involves a collaborative effort with GRID's
+
+Solutions Architects, who asi in designing implementing testing, and monitoring the
+
+interaton
+
+tesimporantto note that not alldatais required toe transmitted and dat entities
+
+(teams players, etc) can be dynamically created or pre-ceated.
+
+
+## I there are any questions, always feel ree to reach otto support@gridgs (Page 56)
+
+![Page 56](images/page-56.png)
+
+
+### OCR Text
+
+
+I there are any questions, always feel ree to reach otto support@gridgs
+
+
+## Post-Game Data API Quick-Start (Page 57)
+
+![Page 57](images/page-57.png)
+
+
+### OCR Text
+
+
+API Documentation API Reference Widgets Video. GQL Playground
+LT
+Post-Game Data API Quick-Start
+Guide
+This guide il gt you up and cunning with the basis af transiting postgame datato
+the GRID Data Platform
+1 Prerequisites:
++ APL ke. "itle id for production, and test title i (for development fron
+Ri.
++ gridopenapl_post.game_apivamt file (OpenAP! speciation) Link to
+Download
+2.Set up your environment:
++ Use the provided API keys and title Ds. Keep the production and test
++ Open the a openapi_post.game_apiyaml fie in the Swagger Editor to
++ After a game ends, sendan UPDATE.BASIC_GAME STATE command via
++ Include a unique game ID inthe request
+«This single command is enough to make game statistics available through the
+GRID Post-Game GraphQl. API
+
+
+## 2 "command": "UPDATE _BASIC_GNE_STATE”, (Page 58)
+
+![Page 58](images/page-58.png)
+
+
+### OCR Text
+
+
+ae
+2 "command": "UPDATE _BASIC_GNE_STATE”,
+3 “game_id": “your_unique_game_id”,
+4 “gane_result: "win",
+5 “player_count™: 10
+6 Hess other relevant gane state data
+7)
+‘4 Enhance with Actions:
++ For each significant in-game action (ee. kl. tem oickup), transmit the
+corresponding command (eg, KILL.ENEMY.PLAYER )
++ The OpenAP! specification details avallable commands and required elds.
+trate Conceptual 350:
+ae
+2 “command”; "KILL_ENENY_PLAVER™,
+3 “killer_id": "playert23",
+4 “Victim id": "playerase",
+5 “game_{d": "your_unique_game_id”
+6)
+‘5. Track Player Positions:
++ Use the UPDATE_PLAYER_ POSITIONS. command to send player coordinates.
++ Include this command whenever an ation occurs Use a “correlation id"to link
+actions and positions.
++ Send UPDATE PLAYER POSITIONS at rgularintervals (eg. once per
+second) for continuous tracking.
+cme
+2 “command”: "UPOATE_PLAYER_POSITIONS",
+3 “correlation Ad": “unique action 14",
+eves spate anne epi ge »
+
+
+## 4 “positions: [ (Page 59)
+
+![Page 59](images/page-59.png)
+
+
+### OCR Text
+
+
+4 “positions: [
+5 €
+6 “player_id": "players23",
+7 ox: 18.5,
+8 cyt 20.2,
+9 ort 5.0
+10 d
+a U1 ss move player positions
+2]
+B)
+6. Advanced State Changes:
++ Send UPDATE BASIC.GAME STATE commands periodically to reflect
+‘ongoing changes in the game,
++ Correlate these updates with actions or positions using the same “correlation
+lat itmecessary
+17. Verification:
++ After sending data verity that it's available via the GRID Post-Game Graph,
+‘APLusing the game ID.
+Key Considerations:
++ Work with GRID's integration specialists to design tailored plan
++ Transmit only the data relevant to your game.
++ Use your own IDs for data entities (players, teams. et)
+*+ GRID provides support for managing data entity mappings
+‘+ Choose transmission strategy (single batch or real-time) that sults your game
+server's architecture
++ This guide provides a high-level overview Please refer tothe full documentation
+and OpenAP! specification for detalled information on all available commands
+and parameters
+eves sp htatnanng anmantnan ep ai ge »
+
+
+## Post-Game Visualisations Overview (Page 60)
+
+![Page 60](images/page-60.png)
+
+
+### OCR Text
+
+
+API Documentation API Reference Widgets Video GQL Playground
+LT
+
+Post-Game Visualisations Overview
+
+Product Walkthrough: Analyzing Post Game Data
+
+1. Navigating to Post Game Data
+
++ Start on the Game Selection Page: You'l begin onthe malnsereen where you
+
++ Fters: Use the "Filters" section to narrow down your game selection. You can
+fikerby” GAMETITLE “or” PLAYERS
+
++ Game Detals:On the Game Selection Page, youl see alist of individual
+‘matches or sessions played. You can fom this view see overview information,
+such 6a Game/Sesson 1D, Game Duration, Map Played and Game Score.
+
++ Choose a Match Click onthe game o seston you want to analyz further. Tie
+download the game file directy from here
+
+2. Exploring the Post Game Data Page
+
++ Statistics Table Section
+
++ Inthiview you havea detailed overview of the stats from the game.
+
++ Inthe tabbed interface, you can togele between “Player” and "Tea views to
+analyze individual or collective stats
+
++ Inthe Statistic Table itself. you wl find
++ Rows representing Player/Team Names.
++ Columns representing e, Kills score, Assists et). Note that you car
+
+hover the column ttl to get the unabbreviated version
++ Comparison Table Section:
+
+
+## ++ This view looks at team performance and compares it against each other (Page 61)
+
+![Page 61](images/page-61.png)
+
+
+### OCR Text
+
+
+++ This view looks at team performance and compares it against each other
+‘These comparisons can also be implemented asa radar/spder views
+lt there are any questions, always eel ree toreach out to support@erid gz
+eves spent ananassae anni

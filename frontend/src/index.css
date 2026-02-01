@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --valorant-red: #FF4655;
+  --valorant-dark: #0F1923;
+  --valorant-cream: #ECE8E1;
+}
+
+body {
+  @apply bg-surface-400 text-valorant-cream antialiased;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-surface-300;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-valorant-gray/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-valorant-red/70;
+}
+
+/* Selection */
+::selection {
+  @apply bg-valorant-red/30 text-valorant-cream;
+}
+
+/* Glass effect */
+.glass {
+  @apply bg-surface-100/80 backdrop-blur-xl border border-white/5;
+}
+
+/* Glowing border effect */
+.glow-border {
+  box-shadow: 0 0 0 1px rgba(255, 70, 85, 0.3),
+              0 0 20px rgba(255, 70, 85, 0.1);
+}
+
+/* Diagonal stripe pattern */
+.diagonal-stripes {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 70, 85, 0.03) 10px,
+    rgba(255, 70, 85, 0.03) 20px
+  );
+}
+
+/* VALORANT-style header text */
+.val-header {
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Accent underline */
+.accent-underline {
+  position: relative;
+}
+
+.accent-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  @apply bg-valorant-red;
+}
+
+/* Card hover effect */
+.card-hover {
+  @apply transition-all duration-300;
+}
+
+.card-hover:hover {
+  @apply -translate-y-1;
+  box-shadow: 0 10px 40px rgba(255, 70, 85, 0.15);
+}
+
+/* Loading animation */
+@keyframes loading-bar {
+  0% { width: 0%; }
+  50% { width: 70%; }
+  100% { width: 100%; }
+}
+
+.loading-bar {
+  animation: loading-bar 2s ease-in-out infinite;
+}
+
+/* Stat value glow */
+.stat-glow {
+  text-shadow: 0 0 10px rgba(255, 70, 85, 0.5);
+}

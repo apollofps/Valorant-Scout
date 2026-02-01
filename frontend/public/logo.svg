@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <defs>
+    <linearGradient id="logoRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF4655"/>
+      <stop offset="100%" stop-color="#CC2D3A"/>
+    </linearGradient>
+    <filter id="logoGlow">
+      <feGaussianBlur stdDeviation="0.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Rounded square background -->
+  <rect width="40" height="40" rx="8" fill="#0F1923" stroke="url(#logoRed)" stroke-width="1.5"/>
+  <!-- Target outer ring -->
+  <circle cx="20" cy="20" r="12" stroke="url(#logoRed)" stroke-width="1.8" fill="none" opacity="0.85"/>
+  <!-- Target inner ring -->
+  <circle cx="20" cy="20" r="7" stroke="url(#logoRed)" stroke-width="1.2" fill="none" opacity="0.7"/>
+  <!-- Crosshair / scope center - diamond -->
+  <path d="M20 12 L23 18 L20 20 L17 18 Z" fill="url(#logoRed)" filter="url(#logoGlow)"/>
+  <circle cx="20" cy="20" r="3" fill="url(#logoRed)"/>
+</svg>

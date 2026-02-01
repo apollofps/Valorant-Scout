@@ -1,0 +1,22 @@
+# Render Blueprint - Free tier Web Service
+# Set GRID_API_KEY, OPENAI_API_KEY, CORS_ORIGINS in Render Dashboard → Environment
+services:
+  - type: web
+    name: valorant-scout-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GRID_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: LLM_PROVIDER
+        value: openai
+      - key: LLM_MODEL
+        value: gpt-4o-mini
+      - key: ENVIRONMENT
+        value: production

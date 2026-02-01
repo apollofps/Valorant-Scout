@@ -1,0 +1,135 @@
+Sky’s The Limit – Cloud9 x JetBrains Hackathon (GRID Knowledge Base) — consolidated text notes
+
+WHAT CONTENT IS INCLUDED
+- Data window: limited to the past 2 years.
+  Source: https://grid.helpjuice.com/en_US/cloud9-x-jetbrains-hackathon/which-content-is-included-in-the-hackathon
+- Titles/leagues available (select only):
+  - League of Legends: LCS, LEC, LCK, LPL
+  - VALORANT: VCT Americas
+  Source: same as above
+
+DETAILED TOURNAMENTS INCLUDED (WITH IDs)
+League of Legends (LoL)
+- 775192 — LCK - Regional Qualifier 2024
+- 758024 — LCK - Spring 2024
+- 774794 — LCK - Summer 2024
+- 825490 — LCK - Split 2 2025
+- 826679 — LCK - Split 3 2025
+- 775623 — LCK - LCK Cup 2025
+
+- 758043 — LCS - Spring 2024
+- 774888 — LCS - Summer 2024
+
+- 758077 — LEC - Spring 2024
+- 774622 — LEC - Summer 2024
+- 758041 — LEC - Winter 2024
+- 775075 — LEC - Season Finals 2024
+- 825468 — LEC - Spring 2025
+- 826906 — LEC - Summer 2025
+- 775513 — LEC - Winter 2025
+
+- 775167 — LPL - Regional Qualifier 2024
+- 758054 — LPL - Spring 2024
+- 774845 — LPL - Summer 2024
+- 775662 — LPL - Split 1 2025
+- 825450 — LPL - Split 2 2025
+- 826789 — LPL - Split 3 2025
+
+- 775631 — LTA North - Split 1 2025
+- 825567 — LTA North - Split 2 2025
+- 826763 — LTA North - Split 3 2025
+- 775636 — LTA South - Split 1 2025
+- 825600 — LTA South - Split 2 2025
+- 826775 — LTA South - Split 3 2025
+- 775878 — LTA Cross-Conference - Split 1 2025
+- 826782 — LTA Cross-Conference - Regional Championship 2025
+
+VALORANT (VAL)
+- 757371 — VCT Americas - Kickoff 2024
+- 757481 — VCT Americas - Stage 1 2024
+- 774782 — VCT Americas - Stage 2 2024
+- 775516 — VCT Americas - Kickoff 2025
+- 800675 — VCT Americas - Stage 1 2025
+- 826660 — VCT Americas - Stage 2 2025
+- 757614 — VALORANT Masters - Masters Madrid
+
+Source for tournament list:
+https://grid.helpjuice.com/en_US/cloud9-x-jetbrains-hackathon/which-content-is-included-in-the-hackathon
+
+WHICH APIS YOU HAVE ACCESS TO (AND WHAT THEY’RE FOR)
+- Central Data API (GraphQL): static data like schedules/teams/etc.
+- Series State API (GraphQL): post-series “end state” style data (winners, kills, etc.).
+- File Download API (REST): downloadable files containing event-by-event data and final states.
+Source: https://grid.helpjuice.com/en_US/cloud9-x-jetbrains-hackathon/which-apis-i-have-access-to-as-part-of-the-hackathon
+
+CENTRAL DATA API — WHAT IT IS + HOW TO USE IT
+What it is
+- GraphQL API with static information about series on the GRID platform.
+- Example entities: titles, tournaments, series, teams, players (IDs, names, logos/colors, start/end dates, formats, coverage, roles, etc.).
+Source: https://grid.helpjuice.com/en_US/cloud9-x-jetbrains-hackathon/what-is-the-central-data-api
+
+Endpoint + auth
+- Endpoint: https://api-op.grid.gg/central-data/graphql
+- Header: x-api-key: <YOUR_KEY>
+- Can be tested via GraphQL playground and tools like Postman/Insomnia/Bruno.
+Source: https://grid.helpjuice.com/en_US/cloud9-x-jetbrains-hackathon/how-do-i-use-the-central-data-api
+
+Quick usage pattern
+1) Set endpoint in your client
+2) Add x-api-key header
+3) Run a GraphQL query (KB example uses series(id: "2692648") and pulls schedule, teams, tournament, title)
+Source: same as above
+
+SERIES STATE API — WHAT IT IS + HOW TO USE IT
+What it is
+- GraphQL API that provides detailed series/game/team/player information; for this hackathon it’s described as end-of-series states.
+- Example fields mentioned: start/finish times, game maps/times, team scores/kills/deaths/netWorth, player kills/deaths/netWorth/items/roles/character, etc.
+Source: https://grid.helpjuice.com/en_US/cloud9-x-jetbrains-hackathon/what-is-the-series-state-api
+
+Endpoint + auth
+- Endpoint: https://api-op.grid.gg/live-data-feed/series-state/graphql
+- Header: x-api-key: <YOUR_KEY>
+- Testable via GraphQL tools/playground.
+Source: https://grid.helpjuice.com/en_US/cloud9-x-jetbrains-hackathon/how-do-i-use-the-series-state-api
+
+Example query shape
+- KB example queries seriesState(id: "2692648") and pulls flags like started/finished plus team/game/player stats (kills/deaths, etc.).
+Source: same as above
+
+FILE DOWNLOAD API — WHAT IT IS + HOW TO USE IT
+What it is
+- REST API providing downloadable files for a series, including:
+  - final state (mirrors post series state)
+  - compiled history of transactions/events from the Series Events API (excluding item use events)
+Source: https://grid.helpjuice.com/en_US/cloud9-x-jetbrains-hackathon/what-is-the-series-state-api-copy-142
+
+Base URL + auth
+- Base URL: https://api.grid.gg
+- Header: x-api-key: <YOUR_KEY>
+Source: https://grid.helpjuice.com/en_US/cloud9-x-jetbrains-hackathon/how-do-i-use-the-file-download-api
+
+How to download files (KB quick steps)
+1) List files for a series:
+   GET https://api.grid.gg/file-download/list/2692648
+2) Response includes file entries (e.g., events-grid, state-grid) with a fullURL
+3) Download by calling the returned fullURL (example shown: GET https://api.grid.gg/file-download/events/grid/series/2692648)
+Source: same as above
+
+What’s in the “events” JSONL
+- Events JSONL described as transactions sent through the Series Events API during a live series (except item usage).
+Source: https://grid.helpjuice.com/en_US/cloud9-x-jetbrains-hackathon/what-kind-of-events-are-available-in-the-series-events-jsonl-file
+
+- Example event types listed in KB include: series-started-game, player-killed-player, player-used-ability, team-destroyed-tower, etc.
+Source: https://grid.helpjuice.com/en_US/cloud9-x-jetbrains-hackathon/what-is-the-series-state-api-copy-142
+
+HACKATHON DATA QUICKSTART (SUGGESTED WORKFLOW)
+- Use Central Data to obtain Series IDs.
+Suggested query flow:
+  1) Query titles (get title IDs)
+  2) Query tournaments filtered by a title ID
+  3) Query allSeries filtered by tournament ID (optionally include children) to collect series IDs
+- Use those series IDs in Series State and File Download APIs.
+Source: https://grid.helpjuice.com/cloud9-x-jetbrains-hackathon/hackathon-data-quickstart
+
+KB SECTION ROOT (INDEX/LANDING PAGE)
+https://grid.helpjuice.com/en_US/cloud9-x-jetbrains-hackathon

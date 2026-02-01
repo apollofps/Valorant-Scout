@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="r" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF4655"/>
+      <stop offset="100%" stop-color="#E03C4A"/>
+    </linearGradient>
+  </defs>
+  <!-- Dark bg circle -->
+  <circle cx="16" cy="16" r="15" fill="#0F1923"/>
+  <!-- Outer target ring -->
+  <circle cx="16" cy="16" r="12" stroke="url(#r)" stroke-width="2.2" fill="none"/>
+  <!-- Inner ring -->
+  <circle cx="16" cy="16" r="6" stroke="url(#r)" stroke-width="1.5" fill="none" opacity="0.9"/>
+  <!-- Center crosshair -->
+  <path d="M16 10 L17.5 14.5 L16 16 L14.5 14.5 Z" fill="url(#r)"/>
+  <circle cx="16" cy="16" r="2.5" fill="url(#r)"/>
+</svg>
