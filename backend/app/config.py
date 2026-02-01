@@ -53,9 +53,16 @@ class Settings(BaseSettings):
     @classmethod
     def parse_cors_origins(cls, v):  # noqa: ANN001
         """Allow CORS_ORIGINS from env as comma-separated string."""
+        if v is None:
+            return ["http://localhost:5173", "http://localhost:3000"]
+        if isinstance(v, list):
+            return v
         if isinstance(v, str):
+            v = v.strip()
+            if not v or v in ("[]", "null"):
+                return ["http://localhost:5173", "http://localhost:3000"]
             return [origin.strip() for origin in v.split(",") if origin.strip()]
-        return v
+        return ["http://localhost:5173", "http://localhost:3000"]
     
     # Redis (optional caching)
     redis_url: str = "redis://localhost:6379"
