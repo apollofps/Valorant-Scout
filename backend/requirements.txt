@@ -9,9 +9,7 @@ httpx==0.26.0
 gql[httpx]==3.5.0
 graphql-core==3.2.3
 
-# Data Processing
-pandas==2.2.0
-numpy==1.26.4
+# Data Processing (pandas/numpy removed - not used in app; saves ~100MB+ on Render free tier)
 pydantic>=2.12.5
 pydantic-settings>=2.12.0
 
