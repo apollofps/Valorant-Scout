@@ -15,7 +15,7 @@ export async function exportReportToPdf(
   contentElement: HTMLElement,
   options: ExportOptions
 ): Promise<void> {
-  const { teamName, tournamentName } = options;
+  const { teamName } = options;
 
   try {
     // Capture the content as canvas with high quality
@@ -71,7 +71,7 @@ export async function exportReportToPdf(
 /**
  * Capture a specific element and return as image data for PDF.
  */
-async function captureElement(element: HTMLElement): Promise<string> {
+async function _captureElement(element: HTMLElement): Promise<string> {
   const canvas = await html2canvas(element, {
     scale: 2,
     useCORS: true,

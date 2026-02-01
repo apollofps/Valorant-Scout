@@ -57,7 +57,7 @@ const DEFAULT_CALIBRATION: MapCalibration = {
   rotation: 0, flipX: false, flipY: false, offsetX: 0, offsetY: 0, scaleX: 100, scaleY: 100 
 };
 
-export function MapHeatmap({ mapName, kills, bounds, teamName }: MapHeatmapProps) {
+export function MapHeatmap({ mapName, kills, bounds, teamName: _teamName }: MapHeatmapProps) {
   const [showFirstBloods, setShowFirstBloods] = useState(false);
   const [heatmapOpacity, setHeatmapOpacity] = useState(0.8);
   const [showCalibration, setShowCalibration] = useState(false);

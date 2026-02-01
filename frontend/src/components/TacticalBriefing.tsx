@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Target, Map, Users, DollarSign, Trophy, AlertTriangle,
-  CheckCircle, XCircle, Shield, Swords, Lightbulb, Zap,
-  Eye, Star, Sparkles, TrendingUp, TrendingDown,
+  Target, Map, Users, Trophy, AlertTriangle,
+  CheckCircle, Shield, Swords, Lightbulb, Zap,
+  Eye, Sparkles, TrendingUp, TrendingDown,
   Clock, Crosshair, Activity
 } from 'lucide-react';
 import type { TacticalBriefing as TacticalBriefingType } from '../types';

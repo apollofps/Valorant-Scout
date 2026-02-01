@@ -27,7 +27,7 @@ export function MapBreakdown({ siteTendencies }: MapBreakdownProps) {
   const maps = Object.keys(siteTendencies);
   const [selectedMap, setSelectedMap] = useState(maps[0] || '');
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [previousMap, setPreviousMap] = useState<string>('');
+  const [_previousMap, setPreviousMap] = useState<string>('');
 
   useEffect(() => {
     if (maps.length > 0 && !maps.includes(selectedMap)) {

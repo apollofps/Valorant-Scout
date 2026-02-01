@@ -224,7 +224,6 @@ export function EconomyChart({ patterns }: EconomyChartProps) {
           {(() => {
             const isHigh = patterns.force_buy_rate < 0.25;
             const isMedium = patterns.force_buy_rate < 0.4;
-            const colorClass = isHigh ? 'green' : isMedium ? 'amber' : 'red';
             return (
               <motion.div 
                 whileHover={{ scale: 1.02 }}

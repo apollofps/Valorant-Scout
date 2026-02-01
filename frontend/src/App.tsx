@@ -70,12 +70,6 @@ function App() {
     setProgress(0);
   }, []);
 
-  const handleBackToTournament = useCallback(() => {
-    setState('tournament');
-    setReport(null);
-    setProgress(0);
-  }, []);
-
   return (
     <div className="min-h-screen bg-surface-400 relative overflow-hidden">
       {/* Background effects */}
