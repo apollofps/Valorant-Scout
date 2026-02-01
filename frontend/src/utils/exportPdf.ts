@@ -69,20 +69,6 @@ export async function exportReportToPdf(
 }
 
 /**
- * Capture a specific element and return as image data for PDF.
- */
-async function _captureElement(element: HTMLElement): Promise<string> {
-  const canvas = await html2canvas(element, {
-    scale: 2,
-    useCORS: true,
-    allowTaint: true,
-    backgroundColor: '#0f1419',
-    logging: false,
-  });
-  return canvas.toDataURL('image/png');
-}
-
-/**
  * Export report by capturing actual UI components.
  * This creates a multi-page PDF that looks like the app.
  */
