@@ -37,9 +37,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include routers
+# Include routers (under /api for correct config; also under /teams and /reports for base URL without /api)
 app.include_router(teams.router, prefix="/api/teams", tags=["Teams"])
 app.include_router(reports.router, prefix="/api/reports", tags=["Reports"])
+app.include_router(teams.router, prefix="/teams", tags=["Teams"])
+app.include_router(reports.router, prefix="/reports", tags=["Reports"])
 
 
 @app.get("/")
