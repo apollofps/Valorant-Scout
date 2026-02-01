@@ -2,7 +2,7 @@
 from functools import lru_cache
 from typing import Literal
 
-from pydantic import field_validator
+from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -47,23 +47,20 @@ class Settings(BaseSettings):
     # Application
     environment: Literal["development", "staging", "production"] = "development"
     log_level: str = "INFO"
-    cors_origins: list[str] = ["http://localhost:5173", "http://localhost:3000"]
-    
-    @field_validator("cors_origins", mode="before")
-    @classmethod
-    def parse_cors_origins(cls, v):  # noqa: ANN001
-        """Allow CORS_ORIGINS from env as comma-separated string."""
-        if v is None:
+    # Store CORS_ORIGINS as string so pydantic-settings doesn't JSON-parse it (URLs are not valid JSON).
+    cors_origins_env: str = Field(
+        default="http://localhost:5173,http://localhost:3000",
+        validation_alias="CORS_ORIGINS",
+    )
+
+    @property
+    def cors_origins(self) -> list[str]:
+        """Parse CORS_ORIGINS (comma-separated) into a list."""
+        s = (self.cors_origins_env or "").strip()
+        if not s or s in ("[]", "null"):
             return ["http://localhost:5173", "http://localhost:3000"]
-        if isinstance(v, list):
-            return v
-        if isinstance(v, str):
-            v = v.strip()
-            if not v or v in ("[]", "null"):
-                return ["http://localhost:5173", "http://localhost:3000"]
-            return [origin.strip() for origin in v.split(",") if origin.strip()]
-        return ["http://localhost:5173", "http://localhost:3000"]
-    
+        return [x.strip() for x in s.split(",") if x.strip()]
+
     # Redis (optional caching)
     redis_url: str = "redis://localhost:6379"
     cache_ttl_seconds: int = 3600  # 1 hour
