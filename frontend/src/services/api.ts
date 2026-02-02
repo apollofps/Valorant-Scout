@@ -71,7 +71,7 @@ export async function getReportStatus(reportId: string): Promise<ReportStatusRes
   return fetchJson<ReportStatusResponse>(`${API_BASE}/reports/${reportId}`);
 }
 
-// Polling helper for report generation
+// Polling helper for report generation. Returns report and optional memory/timing profile.
 export async function pollReportStatus(
   reportId: string,
   onProgress: (progress: number, stage?: string) => void,

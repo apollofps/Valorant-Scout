@@ -209,7 +209,7 @@ const tabs: { id: TabId; label: string; icon: typeof Target }[] = [
   { id: 'heatmaps', label: 'Heatmaps', icon: Flame },
 ];
 
-export function ReportView({ report, reportId, onBack, team, tournamentName }: ReportViewProps) {
+export function ReportView({ report, reportId, onBack, team, tournamentName, profile }: ReportViewProps) {
   const [activeTab, setActiveTab] = useState<TabId>('overview');
   const [insightsExpanded, setInsightsExpanded] = useState(true);
   const [insights, setInsights] = useState<string[]>(report.key_insights || []);
@@ -242,7 +242,7 @@ export function ReportView({ report, reportId, onBack, team, tournamentName }: R
     try {
       await exportVisibleReport({
         report,
-        teamName: report.team_name,
+        teamName: report.team_name ?? 'Unknown team',
         tournamentName: tournamentName || report.tournament_name,
       });
     } catch (error) {
@@ -274,21 +274,21 @@ export function ReportView({ report, reportId, onBack, team, tournamentName }: R
             <div className="w-14 h-14 rounded-lg bg-surface-100 p-1.5 flex items-center justify-center overflow-hidden">
               <img 
                 src={team.logo_url} 
-                alt={`${report.team_name} logo`}
+                alt={`${report.team_name ?? 'Team'} logo`}
                 className="w-full h-full object-contain"
               />
             </div>
           ) : (
             <div className="w-14 h-14 rounded-lg bg-valorant-red/20 flex items-center justify-center">
               <span className="text-xl font-bold text-valorant-red">
-                {report.team_name.slice(0, 2).toUpperCase()}
+                {(report.team_name ?? '??').slice(0, 2).toUpperCase()}
               </span>
             </div>
           )}
           
           <div>
             <h1 className="val-header text-3xl text-valorant-cream">
-              SCOUTING REPORT: <span className="text-valorant-red">{report.team_name.toUpperCase()}</span>
+              SCOUTING REPORT: <span className="text-valorant-red">{(report.team_name ?? 'Unknown team').toUpperCase()}</span>
             </h1>
             <div className="flex items-center gap-4 mt-1 text-sm text-valorant-gray">
               <span className="flex items-center gap-1">
@@ -648,14 +648,14 @@ function OverviewTab({
                   <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl bg-surface-100/80 backdrop-blur p-2 flex items-center justify-center shadow-xl ring-2 ring-white/10">
                     <img 
                       src={team.logo_url} 
-                      alt={`${report.team_name} logo`}
+                      alt={`${report.team_name ?? 'Team'} logo`}
                       className="w-full h-full object-contain drop-shadow-lg"
                     />
                   </div>
                 ) : (
                   <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl bg-gradient-to-br from-valorant-red/30 to-valorant-red/10 flex items-center justify-center shadow-xl ring-2 ring-valorant-red/30">
                     <span className="text-3xl md:text-4xl font-black text-valorant-red">
-                      {report.team_name.slice(0, 2).toUpperCase()}
+                      {(report.team_name ?? '??').slice(0, 2).toUpperCase()}
                     </span>
                   </div>
                 )}
@@ -677,7 +677,7 @@ function OverviewTab({
                   transition={{ delay: 0.3 }}
                   className="text-4xl md:text-5xl font-black text-valorant-cream tracking-tight"
                 >
-                  {report.team_name}
+                  {report.team_name ?? 'Unknown team'}
                 </motion.h2>
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}

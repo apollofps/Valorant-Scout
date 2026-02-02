@@ -1,0 +1,2 @@
+# Heroku / root build: install backend dependencies (single source: backend/requirements.txt)
+-r backend/requirements.txt

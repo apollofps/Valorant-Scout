@@ -24,7 +24,7 @@ interface MapBreakdownProps {
 }
 
 export function MapBreakdown({ siteTendencies }: MapBreakdownProps) {
-  const maps = Object.keys(siteTendencies);
+  const maps = Object.keys(siteTendencies ?? {});
   const [selectedMap, setSelectedMap] = useState(maps[0] || '');
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [_previousMap, setPreviousMap] = useState<string>('');

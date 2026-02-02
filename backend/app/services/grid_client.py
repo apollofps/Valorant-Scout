@@ -4,9 +4,13 @@ from datetime import datetime
 
 import httpx
 from loguru import logger
-from tenacity import retry, stop_after_attempt, wait_exponential
+from tenacity import retry, retry_if_exception, stop_after_attempt, wait_exponential
 
 from app.config import get_settings
+
+
+class GridRateLimitError(Exception):
+    """Raised when GRID API returns rate limit (ENHANCE_YOUR_CALM). Retry with long backoff."""
 from app.models.team import Team, TeamDetails, Player
 from app.models.match import Match, GameState, Round, GamePlayerStats
 
@@ -50,9 +54,19 @@ class GridClient:
         if self._client:
             await self._client.aclose()
     
-    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
+    @retry(
+        retry=retry_if_exception(lambda e: isinstance(e, GridRateLimitError)),
+        stop=stop_after_attempt(5),
+        wait=wait_exponential(multiplier=15, min=30, max=120),
+        reraise=True,
+    )
+    @retry(
+        retry=retry_if_exception(lambda e: not isinstance(e, GridRateLimitError)),
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=1, min=2, max=10),
+    )
     async def _execute_query(self, query: str, variables: dict = None, use_series_state: bool = False) -> dict:
-        """Execute a GraphQL query against GRID API."""
+        """Execute a GraphQL query against GRID API. Rate limit (ENHANCE_YOUR_CALM) is retried with long backoff."""
         if not self._client:
             raise RuntimeError("Client not initialized. Use async with GridClient() as client:")
         
@@ -67,14 +81,28 @@ class GridClient:
             
             data = response.json()
             if "errors" in data:
-                error_msg = data['errors'][0].get('message', 'Unknown GraphQL error')
+                err = data["errors"][0]
+                error_msg = err.get("message", "Unknown GraphQL error")
+                ext = err.get("extensions") or {}
+                is_rate_limit = (
+                    "rate limit" in error_msg.lower()
+                    or ext.get("errorDetail") == "ENHANCE_YOUR_CALM"
+                )
                 logger.error(f"GraphQL errors: {data['errors']}")
+                if is_rate_limit:
+                    logger.warning("GRID API rate limit hit; will retry with backoff.")
+                    raise GridRateLimitError(f"GraphQL error: {error_msg}")
                 raise Exception(f"GraphQL error: {error_msg}")
             
             return data.get("data", {})
         except httpx.HTTPStatusError as e:
+            if e.response.status_code == 429:
+                logger.warning("GRID API 429 rate limit; will retry with backoff.")
+                raise GridRateLimitError(f"API rate limit: {e.response.text}")
             logger.error(f"HTTP error {e.response.status_code}: {e.response.text}")
             raise Exception(f"API request failed: {e.response.status_code} - {e.response.text}")
+        except GridRateLimitError:
+            raise
         except Exception as e:
             logger.error(f"Error executing GraphQL query: {e}")
             raise

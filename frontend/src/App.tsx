@@ -5,7 +5,7 @@ import { TeamSearch } from './components/TeamSearch';
 import { TournamentSelector } from './components/TournamentSelector';
 import { ReportView } from './components/ReportView';
 import { LoadingState } from './components/LoadingState';
-import type { Team, ScoutingReport } from './types';
+import type { Team, ScoutingReport, ReportProfile } from './types';
 import { generateReport, pollReportStatus } from './services/api';
 
 type AppState = 'search' | 'tournament' | 'loading' | 'report';
