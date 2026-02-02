@@ -61,7 +61,7 @@ async def generate_report(
         "maps": request.maps,
         "tournament_id": request.tournament_id,
         "report": None,
-        "error": None
+        "error": None,
     }
     
     # Start background processing
@@ -202,7 +202,7 @@ async def process_report(
         reports_store[report_id]["report"] = report
         
         logger.info(f"Report {report_id} completed successfully")
-        
+
     except Exception as e:
         logger.error(f"Report {report_id} failed: {e}")
         reports_store[report_id]["status"] = ReportStatus.FAILED
@@ -226,7 +226,7 @@ async def get_report_status(report_id: str):
         progress=data["progress"],
         stage=data.get("stage", ""),
         report=data.get("report"),
-        error=data.get("error")
+        error=data.get("error"),
     )
 
 
