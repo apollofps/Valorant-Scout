@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Target, FileText, TrendingUp } from 'lucide-react';
 import { TeamSearch } from './components/TeamSearch';
 import { TournamentSelector } from './components/TournamentSelector';
-import { ReportView } from './components/ReportView';
+import ReportView from './components/ReportView';
 import { LoadingState } from './components/LoadingState';
 import type { Team, ScoutingReport } from './types';
 import { generateReport, pollReportStatus } from './services/api';
@@ -87,7 +87,7 @@ function App() {
           <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden bg-surface-100 border border-white/10 flex-shrink-0">
-                <img src="/logo.svg" alt="VALORANT Scout" className="w-full h-full object-contain p-1" />
+                <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="VALORANT Scout" className="w-full h-full object-contain p-1" />
               </div>
               <div>
                 <h1 className="val-header text-xl text-valorant-cream">VALORANT SCOUT</h1>
