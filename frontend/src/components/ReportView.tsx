@@ -209,7 +209,7 @@ const tabs: { id: TabId; label: string; icon: typeof Target }[] = [
   { id: 'heatmaps', label: 'Heatmaps', icon: Flame },
 ];
 
-export function ReportView({ report, reportId, onBack, team, tournamentName, profile }: ReportViewProps) {
+export function ReportView({ report, reportId, onBack, team, tournamentName }: ReportViewProps) {
   const [activeTab, setActiveTab] = useState<TabId>('overview');
   const [insightsExpanded, setInsightsExpanded] = useState(true);
   const [insights, setInsights] = useState<string[]>(report.key_insights || []);
