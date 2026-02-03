@@ -2,8 +2,11 @@
 
 > **Automated Scouting Report Generator for Competitive VALORANT Teams**
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Hackathon](https://img.shields.io/badge/Hackathon-Cloud9%20x%20JetBrains-blue)](https://cloud9-jetbrains.devpost.com)
 [![Category](https://img.shields.io/badge/Category-Automated%20Scouting-red)](https://cloud9-jetbrains.devpost.com)
+
+**License:** This project is open source under the [MIT License](LICENSE).
 
 Generate comprehensive, coach-ready scouting reports powered by GRID's official esports data and AI analysis.
 
@@ -197,7 +200,7 @@ This is a hackathon project, but PRs are welcome!
 
 ## 📝 License
 
-MIT License - feel free to use this for your own scouting needs!
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file in the root of this repository for the full text.
 
 ---
 

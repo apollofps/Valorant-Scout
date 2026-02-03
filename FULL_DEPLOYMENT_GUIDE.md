@@ -15,6 +15,7 @@ One guide to get the app live: **backend on Render**, **frontend on GitHub Pages
 7. [Environment variables reference](#7-environment-variables-reference)
 8. [Troubleshooting](#8-troubleshooting)
 9. [Optional: Vercel instead of GitHub Pages](#9-optional-vercel-instead-of-github-pages)
+10. [Alternative: DigitalOcean ($200 credit) or Heroku ($13/m)](#10-alternative-digitalocean-200-credit-or-heroku-13m)
 
 ---
 
@@ -230,6 +231,14 @@ If you change it, push a commit to `main` or run the **Deploy to GitHub Pages** 
 - Confirm **VITE_API_URL** in GitHub Actions variables = `https://YOUR-RENDER-APP.onrender.com/api`.
 - Re-run the Pages workflow (or push a commit) so the frontend is rebuilt with the correct URL.
 
+### Backend runs out of memory on Render
+
+- Render free tier has **512 MB RAM**. The repo is tuned to stay under that:
+  - **pandas/numpy** are not used and are omitted from `requirements.txt` (they would add ~100MB+).
+  - Start command uses **`--workers 1`** so only one uvicorn worker runs.
+  - **WEB_CONCURRENCY=1** is set in the blueprint.
+- If you still hit OOM: in Render Dashboard → service → **Settings** consider moving to a paid instance with more RAM, or remove any extra heavy dependencies.
+
 ### Backend very slow on first request
 
 - Render free tier spins down after ~15 min inactivity. First request can take 30–60 s. Subsequent requests are fast until idle again.
@@ -240,12 +249,20 @@ If you change it, push a commit to `main` or run the **Deploy to GitHub Pages** 
   - Repo has a **`.python-version`** file at the repo root with `3.12.4`. Ensure it’s committed and pushed.
   - Or in Render Dashboard → your service → **Environment** → add **PYTHON_VERSION** = `3.12.4`, then redeploy.
 - Ensure **Root Directory** is `backend` and **Build Command** is `pip install -r requirements.txt`.
-- Check **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`.
+- Check **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1`.
 
 ### Build fails on GitHub Actions
 
 - Ensure **VITE_API_URL** is set under **Actions** → **Variables** (not Secrets, unless your workflow uses secrets).
 - Check that the workflow file is in `.github/workflows/deploy-pages.yml` and that the default branch is `main` (or update the workflow’s `branches` to match).
+
+---
+
+### GRID API rate limit ("You have exceeded your rate limit" / ENHANCE_YOUR_CALM)
+
+- The error is from **GRID** (grid.gg), not from multiple instances. The same API key is rate-limited across all use (local + cloud).
+- The app now **retries** on rate limit with long backoff (30s, 60s, 120s, up to 5 attempts). Deploy the latest backend to get this.
+- If you still hit the limit: wait a few minutes and try again, or generate fewer reports in a short time. For higher limits, check GRID's developer plan.
 
 ---
 
@@ -265,6 +282,68 @@ If you prefer Vercel for the frontend:
    (no trailing slash).
 
 No GitHub Actions or GitHub Pages settings are needed for the frontend if you use Vercel.
+
+---
+
+## 10. Alternative: DigitalOcean ($200 credit) or Heroku ($13/m)
+
+If you have **$200 DigitalOcean credit** or **$13/month Heroku**, you can host the backend there instead of Render. Both give more RAM than Render’s free tier and avoid OOM.
+
+| Option | Best for | RAM / cost |
+|--------|----------|------------|
+| **DigitalOcean** | Using $200 credit; more control | App Platform ~512MB–1GB; Droplet 1GB+ from ~$6/mo |
+| **Heroku** | Simple deploy, $13/m budget | Basic dyno 512MB–1GB; Eco/Basic ~$5–7/dyno |
+
+Frontend stays on **GitHub Pages**; set **VITE_API_URL** to your new backend URL (e.g. `https://your-app.herokuapp.com/api` or your DO URL + `/api`) and **CORS_ORIGINS** on the backend to `https://YOUR_USERNAME.github.io`.
+
+---
+
+### 10.1 DigitalOcean App Platform (recommended with credit)
+
+1. Go to [cloud.digitalocean.com](https://cloud.digitalocean.com) → **App Platform** → **Create App**.
+2. Connect GitHub and select your repo.
+3. **Resources:** add a **Web Service** (not static).
+4. **Source:**
+   - **Root Directory:** `backend`
+   - **Build Command:** `pip install -r requirements.txt`
+   - **Run Command:** `uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8080} --workers 1`
+5. **Environment:** Add (DO usually sets **PORT**; if not, set **PORT** = `8080`). Add:
+   - `GRID_API_KEY`, `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`, `LLM_PROVIDER`, `LLM_MODEL`
+   - `CORS_ORIGINS` = `https://YOUR_USERNAME.github.io`
+6. **Health check (fixes "connection refused" on port 8000):** The probe port is set in the **App Spec** (YAML), not a separate "Health Check" page. In the app → **App Spec** tab (or **Edit your app spec**), add `http_port: 8080` to your service and optionally `health_check: { port: 8080, http_path: /health }`. See [docs/DIGITALOCEAN_HEALTH_CHECK.md](docs/DIGITALOCEAN_HEALTH_CHECK.md) for step-by-step.
+7. Deploy. Copy the app URL and use **VITE_API_URL** = `https://your-app-xxxxx.ondigitalocean.app/api` in GitHub Actions.
+
+**If the app keeps crashing / restarting:** Increase instance size. In App Spec add **instance_size_slug: basic-xs** (1 GB) or **basic-s** (2 GB) under your service; or in the dashboard: Resources → Web Service → **Instance size** / **Plan** → choose a larger tier. See [docs/DIGITALOCEAN_HEALTH_CHECK.md](docs/DIGITALOCEAN_HEALTH_CHECK.md#if-the-app-keeps-crashing--restarting-oom).
+
+**Note:** If App Platform doesn’t allow root directory `backend`, use repo root and set **Run Command** to `cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1` and ensure the build installs from `backend/requirements.txt` (e.g. build command: `pip install -r backend/requirements.txt`).
+
+---
+
+### 10.2 Heroku ($13/m)
+
+The repo includes **Procfile**, **runtime.txt**, and root **requirements.txt** (which points at `backend/requirements.txt`) so Heroku can build and run the backend.
+
+1. Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and run `heroku login`.
+2. From your repo root:
+   ```bash
+   heroku create your-app-name
+   heroku buildpacks:set heroku/python
+   ```
+3. Set config vars (env):
+   ```bash
+   heroku config:set GRID_API_KEY=your_key
+   heroku config:set OPENAI_API_KEY=your_key
+   heroku config:set CORS_ORIGINS=https://YOUR_USERNAME.github.io
+   heroku config:set LLM_PROVIDER=openai
+   heroku config:set LLM_MODEL=gpt-4o-mini
+   ```
+4. Deploy:
+   ```bash
+   git push heroku main
+   ```
+5. Backend URL will be `https://your-app-name.herokuapp.com`. In GitHub Actions set **VITE_API_URL** = `https://your-app-name.herokuapp.com/api`.
+
+**CORS:** Set `CORS_ORIGINS` to your GitHub Pages origin (e.g. `https://apollofps.github.io`) so the frontend can call the API.
 
 ---
 

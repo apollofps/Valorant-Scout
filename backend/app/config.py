@@ -40,9 +40,8 @@ class Settings(BaseSettings):
     
     @property
     def is_thinking_model(self) -> bool:
-        """Check if the current model is a thinking model (o1 series or gpt-5.x series)."""
-        model = self.effective_llm_model.lower()
-        return model.startswith("o1-") or model.startswith("gpt-5") or "thinking" in model
+        """Always False: use base model API (temperature, max_tokens) only, no thinking/reasoning models."""
+        return False
     
     # Application
     environment: Literal["development", "staging", "production"] = "development"
